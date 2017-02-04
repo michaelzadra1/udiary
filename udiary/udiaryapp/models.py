@@ -3,17 +3,14 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class AccountManager(BaseUserManager):
-	def create_account(self, email, password=None, **kwargs):
-		if not email:
-			raise ValueError('User must have a valid email address')
-		
-		if not kwargs.get('dob'):
-			raise ValueError("User must provide a date of birth")
+	def create_user(self, **kwargs):
+		#if not email:
+		#	raise ValueError('User must have a valid email address')
 		
 		account = self.model(
-			email = self.normalize_email(email), dob = kwargs.get('dob')
+			Email = self.normalize_email(kwargs.get('Email'))
 			)
-		account.set_password(password)
+		account.set_password(kwargs.get('password'))
 		account.save()
 		
 		return account
@@ -24,7 +21,6 @@ class Account(AbstractBaseUser):
 	LName = models.CharField(max_length=30)
 	Email = models.EmailField(unique=True)
 
-	DOB = models.DateTimeField('date of birth')
 	Gender = models.CharField(max_length = 1)
 	
 	created_at = models.DateTimeField(auto_now_add=True)
@@ -33,7 +29,7 @@ class Account(AbstractBaseUser):
 	objects = AccountManager()
 	
 	USERNAME_FIELD = 'Email'
-	REQUIRED_FIELDS= ['email', 'DOB']
+#	REQUIRED_FIELDS= ['Email']
 	
 	def __str__(self):
 		return self.FName +self.LName

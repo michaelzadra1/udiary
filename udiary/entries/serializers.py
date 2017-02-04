@@ -15,6 +15,8 @@ class EntrySerializer(serializers.ModelSerializer):
 class AnalysisSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Analysis
-		fields = ('entry', 'sentiment', 'texttags', 'keywords', 'people', 'places', 'personality', 'emotion', 'personas',)
-
+		fields = ('entry', 'sentiment', 'texttags', 'keywords', 'people', 'places', 'personality', 'emotion', 'personas', 'sentiment_tags', 'sentiment_keywords', 'sentiment_people', 'sentiment_places',)
+		read_only_fields = ('id', 'updated_at')
 		
+		def create(self, validated_data):
+			return Analysis.objects.create(**validated_data)

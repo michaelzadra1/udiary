@@ -1,0 +1,21 @@
+from rest_framework.test import APIRequestFactory
+from django.test import TestCase
+from udiaryapp.models import Account
+F
+factory = APIRequestFactory()
+request = factory.post('/notes/', {'title': 'new idea'})
+
+class AccountTestCase(TestCase):
+	def setup(self):
+		#Account.objects.create('test@test.com', password="pw", FName = 'Jon', LName='Doe')
+		pass
+	def testAccountCreation():
+		factory = APIRequestFactory()
+		request = factory.post('/api/v1/accounts/', {
+			Email: 'a@a.com',
+			password: 'pw',
+			FName: 'John',
+			LName: 'Doe',
+			DOB: '2017-01-01',
+			Gender: 'M'
+		  });
