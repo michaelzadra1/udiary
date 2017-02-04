@@ -6,13 +6,20 @@ class User(models.Model):
 	LName = models.CharField(max_length=30)
 	DOB = models.DateTimeField('date of birth')
 	Gender = models.CharField(max_length = 1)
+	
+	def __str__(self):
+		return self.FName +self.LName
 
 class Entry(models.Model):
 	User = models.ForeignKey(User, on_delete = models.CASCADE)
 	Date = models.DateTimeField('date added')
-	Text = TextField()
+	Text = models.TextField()
+	
+	def __str__(self):
+		return self.User + " " + self.Text[:50] + '...'
 	
 class Analysis(models.Model):
+	entry = models.ForeignKey(Entry, on_delete = models.CASCADE)
 	sentiment = models.TextField();
 	texttags = models.TextField();
 	keywords = models.TextField();
@@ -22,4 +29,6 @@ class Analysis(models.Model):
 	emotion = models.TextField();
 	personas = models.TextField();
 
-	
+	def __str__(self):
+		return self.id + " " + self.entry;
+		

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+	'udiaryapp.apps.UdiaryappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,8 +77,8 @@ WSGI_APPLICATION = 'udiary.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.path.join(BASE_DIR, 'udiarydb'),
-		'USER' : 'root',
+        'NAME': 'udiarydb',
+		'USER' : 'postgres',
 		'PASSWORD' : 'a28foxall',
 		'HOST':'127.0.0.1',
 		'PORT':'5432',
