@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 	'entries',
+	'analysis',
 	'udiaryapp.apps.UdiaryappConfig',
     'django.contrib.admin',
     'django.contrib.auth',

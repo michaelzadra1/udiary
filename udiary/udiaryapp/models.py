@@ -10,6 +10,7 @@ class AccountManager(BaseUserManager):
 		account = self.model(
 			Email = self.normalize_email(kwargs.get('Email'))
 			)
+		account.set_name_gender(kwargs.get('FName'), kwargs.get("LName"), kwargs.get('Gender'))
 		account.set_password(kwargs.get('password'))
 		account.save()
 		
@@ -38,11 +39,14 @@ class Account(AbstractBaseUser):
 		return self.email
 		
 	def get_full_name(self):
-		return self.FName + " " + self.LName
+		return(self.FName + " " + self.LName)
 		
 	def get_short_name(self):
 		return self.FName
-
 		
+	def set_name_gender(self, f, l, g):
+		self.FName = f
+		self.LName = l
+		self.Gender = g
 
 	

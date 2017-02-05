@@ -1,6 +1,6 @@
 from django.contrib.auth import update_session_auth_hash
 from rest_framework import serializers
-from entries.models import Entry, Analysis
+from entries.models import Entry
 
 class EntrySerializer(serializers.ModelSerializer):
 	class Meta:
@@ -12,11 +12,3 @@ class EntrySerializer(serializers.ModelSerializer):
 		def create(self, validated_data):
 			return Entry.objects.create(**validated_data)	
 
-class AnalysisSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Analysis
-		fields = ('entry', 'sentiment', 'texttags', 'keywords', 'people', 'places', 'personality', 'emotion', 'personas', 'sentiment_tags', 'sentiment_keywords', 'sentiment_people', 'sentiment_places',)
-		read_only_fields = ('id', 'updated_at')
-		
-		def create(self, validated_data):
-			return Analysis.objects.create(**validated_data)

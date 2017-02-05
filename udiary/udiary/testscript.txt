@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl -H "Content-Type: application/json" -X POST -d '{"Email": "a@abc.com", "FName": "John:", "LName" : "Doe", "Gender" :"M", "password":"pass", "confirm_password":"pass"}' http://localhost:8000/api/v1/accounts/
+

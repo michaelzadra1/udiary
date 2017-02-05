@@ -19,12 +19,31 @@ class AccountTests(APITestCase):
 		}
 		
 		response = self.client.post(url, data, format='json')
-		print("response: " + str(response))
+		data2 = {
+			'Email': 'b@abc.com',
+			'FName': 'Jane',
+			'LName' : 'Doe',
+			'Gender' :'M',
+			'password':'pass',
+			'confirm_password':'pass'
+		}
+		
+		response = self.client.post(url, data2, format='json')
+		data3 = {
+			'Email': 'c@abc.com',
+			'FName': 'John',
+			'LName' : 'Doe',
+			'Gender' :'M',
+			'password':'pass',
+			'confirm_password':'pass'
+		}
+		
+		response = self.client.post(url, data3, format='json')
 
 		self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-		self.assertEqual(Account.objects.count(), 1)
-		#account = Account.objects.get()
-		#print("Account: " + str(account))
+		self.assertEqual(Account.objects.count(), 3)
+
 		objs = Account.objects.all()
+		print(len(objs))
 		for obj in objs:
-			print(str(obj))
+			print("obj:" + obj.get_full_name())
