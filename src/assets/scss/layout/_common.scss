@@ -6,34 +6,30 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
 /* ---------------------------------------------------- Header -------------------------------------------------- */
 h1 {
   color: $primary;
   font-size: 40px !important;
 }
 #header {
-  padding: 0;
-  position: static;
-  height: 60px;
-  background-color: $primary;
-  box-shadow: 0px 1px 1px -1px rgba(0,0,0,0.75);
+  height: 50px;
+  padding: 10px 45px;
 
   .header-container {
-    padding: 0px 20px;
-    position: relative;
-    .logo, .search, .login {
-      display: inline-block;
-      text-align: center;
-      height: 60px;
+    display: flex;
+    align-items: center;
+
+    .logo, .login {
+      width: 50%;
+      font-size: 25px;
+      color: $primary;
     }
     .logo {
-      width: 20%;
-    }
-    .search {
-      width: 50%;
+      text-align: left;
     }
     .login {
-      width: 29%;
+      text-align: right;
     }
   }
 }
@@ -45,17 +41,24 @@ h1 {
     height: 340px;
     background-image: url('../../assets/images/journal-bg.png');
   }
+  .layer {
+    background-color: rgba(231, 150, 23, 0.08);
+    width: 100%;
+    height: 100%;
+  }
   .sub-nav {
+    box-shadow: $shadow;
     width: 600px;
+    border-radius: 3px;
     margin: -44px auto;
     position: relative;
     z-index: 2;
     list-style: none;
-    background: $secondary;
+    background: $primary;
     padding: 14px 0;
     text-align: center;
     a {
-      color: $primary;
+      color: white;
     }
 
     li {
@@ -71,7 +74,7 @@ h1 {
 
         &:before {
           content: '';
-          background: #000;
+          background: white;
           width: 2px;
           position: absolute;
           height: 42px;
@@ -80,7 +83,118 @@ h1 {
           transform: translateY(-50%);
         }
       }
+      .active {
+        text-decoration: underline;
+      }
+    }
+  }
+  .selected-section {
+    height: 260px;
+    background-color: $third;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .journal-container {
+    box-shadow: $shadow;
+    margin: -40px auto 0px auto;
+    border-radius: 3px;
+    width: 1000px;
+    height: 1500px;
+    background-color: white;
+    z-index: 2;
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+      outline: none;
+    }
+    .submit-container {
+      .plus-btn {
+        margin-top: -20px;
+      }
+    }
+    .naming-container {
+      padding: 30px 10px;
+      border-bottom: $gray;
+
+      .entry-name {
+        display: inline-block;
+        width: 15%;
+        float: left;
+        border-bottom: 1px dashed black;
+      }
+      .entry-date {
+        display: inline-block;
+        width: 15%;
+        float: right;
+        border-bottom: 1px dashed black;
+      }
+      input {
+        border: 0;
+        padding: 5px 8px 1px 8px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .entry-container {
+      border-top: 1px solid $gray;
+      margin: 20px 0px;
+      text-align: center;
+      .content {
+        padding: 30px 30px;
+        border: none;
+      }
     }
   }
 }
 /* ---------------------------------------------------- Footer -------------------------------------------------- */
+#footer {
+  height: 100px;
+  background-color: $primary;
+  z-index: 0;
+}
+
+
+.plus-btn {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  transition: all 0.3s;
+}
+.plus-btn-2 {
+  background: #cb4e4e;
+  color: #fff;
+  box-shadow: 0 6px #ab3c3c;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+/* Button 2i */
+.plus-btn-2i {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+}
+
+.plus-btn-2i:hover {
+  box-shadow: 0 4px #ab3c3c;
+  top: 2px;
+}
+
+.plus-btn-2i:active {
+  box-shadow: 0 0 #ab3c3c;
+  top: 6px;
+}
+.plus-btn:focus {
+  outline: none;
+}

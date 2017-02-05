@@ -1,11 +1,19 @@
 <div class="home-wrap">
   <div class="header-banner">
-
+    <div class="layer"></div>
   </div>
   <ul class="sub-nav">
-    <li><a href="#">My<br>Journal</a></li>
-    <li><a href="#">My<br>Insights</a></li>
-    <li><a href="#">My<br>Profile</a></li>
-    <li><a href="#">My<br>Therapist</a></li>
+    <li><a [routerLinkActive]="['active']" [routerLink] = "['/journal']">My<br>Journal</a></li>
+    <li><a [routerLinkActive]="['active']" [routerLink] = "['/insights']">My<br>Insights</a></li>
+    <li><a [routerLinkActive]="['active']" [routerLink] = "['/profile']">My<br>Profile</a></li>
+    <li><a [routerLinkActive]="['active']" [routerLink] = "['/resources']">My<br>Resources</a></li>
   </ul>
+  <div class="selected-section">
+    <div style="text-align: center;">
+      <h1>My {{title}}</h1>
+    </div>
+  </div>
+  <!-- Views -->
+  <router-outlet>
+  </router-outlet>
 </div>

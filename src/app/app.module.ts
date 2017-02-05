@@ -11,13 +11,17 @@ import { HomeComponent } from './home/home.component';
 // routedComponents holds array of routing components
 import {routing, routedComponents} from './app.routing';
 import { TestComponent } from './test/test.component';
+import { InsightsComponent } from './insights/insights.component';
+import { JournalComponent } from './journal/journal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routedComponents,
     HomeComponent,
-    TestComponent
+    TestComponent,
+    InsightsComponent,
+    JournalComponent
   ],
   imports: [
     BrowserModule,

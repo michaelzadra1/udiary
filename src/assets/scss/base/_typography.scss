@@ -1,5 +1,7 @@
 // Typography
-
+body {
+  font-family: $font-family;
+}
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -30,6 +32,6 @@ h5, .h5 {
   font-size: $h5-font-size;
 }
 
-p, li {
+p, li, span, input, textarea {
   font-family: $font-family;
 }

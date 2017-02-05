@@ -1,0 +1,24 @@
+<div class="journal">
+  <div class="journal-container">
+    <form  #journalForm="ngForm" (ngSubmit)="save(journalForm.value, journalForm.valid)">
+      <!-- Submit Journal Entry -->
+      <div class="submit-container" style="text-align: center; display: block;">
+        <button type="submit" class="plus-btn plus-btn-2 plus-btn-2i">Add</button>
+      </div>
+      <div class = "naming-container">
+        <!-- Journal Entry Name -->
+        <div class="entry-name">
+          <input type="entry-name" name = "name" id="entry-name" placeholder="Entry Name" [(ngModel)]="journal.name" required>
+        </div>
+        <!-- Journal Entry Date -->
+        <div class="entry-date">
+          <input type="entry-date" name = "date" id="entry-date" placeholder="Entry Date" [(ngModel)]="journal.date" required>
+        </div>
+      </div>
+      <!-- Journal Entry Content -->
+      <div class="entry-container">
+        <textarea class="content" name = "content" rows="56" cols="100" [(ngModel)]="journal.content" required></textarea>
+      </div>
+    </form>
+  </div>
+</div>

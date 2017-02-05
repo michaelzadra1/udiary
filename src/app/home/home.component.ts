@@ -1,14 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor() { }
+  title: string;
+  currentUrl: string;
 
-  ngOnInit() {
+  constructor(private router: Router ) {
+    // On route change
+    this.router.events.subscribe(path => {
+      this.currentUrl = path.url;
+      // Billing info
+      if (this.currentUrl == '/journal') {
+        this.title = "Journal";
+      // Scent Profile
+      } else if (this.currentUrl == '/insights') {
+        this.title = "Insights";
+      }
+    });
   }
-
 }
